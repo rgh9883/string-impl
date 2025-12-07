@@ -13,7 +13,7 @@ String* string_create() {
   return new_str;
 }
 
-void char_append(String* str, char* add_char) {
+void char_append(String* str, const char* add_char) {
   size_t add_len = 0;
   while(add_char[add_len] != '\0') {
     add_len++;
@@ -40,7 +40,7 @@ void string_append(String* str, String* add_str) {
   str->len = len + add_len;
 }
 
-void char_insert(String* str, char* ins_char, size_t index) {
+void char_insert(String* str, const char* ins_char, size_t index) {
   size_t ins_len = 0;
   while(ins_char[ins_len] != '\0') {
     ins_len++;
