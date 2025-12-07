@@ -63,6 +63,26 @@ void char_insert(String* str, char* ins_char, size_t index) {
   str->len = len + ins_len;
 }
 
+void string_insert(String* str, String* ins_str, size_t index) {
+  size_t ins_len = ins_str->len;
+
+  size_t len = str->len;
+  str->data = (char*) realloc(str->data, (len + ins_len + 1) * sizeof(char));
+
+  size_t i = len;
+  while(i >= index) {
+    str->data[i+ins_len] = str->data[i];
+    if(i == 0) break;
+    i--;
+  }
+
+  for(int j = 0; j < ins_len; j++) {
+    str->data[j+index] = ins_str->data[j];
+  }
+
+  str->len = len + ins_len;
+}
+
 void string_free(String* str) {
   free(str->data);
   free(str);
