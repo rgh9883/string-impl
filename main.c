@@ -21,5 +21,5 @@ int main() {
 
   string_free(str);
   string_free(str2);
-  return 1;
+  return 0;
 }
